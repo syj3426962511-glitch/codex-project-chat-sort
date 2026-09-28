@@ -12,3 +12,9 @@ No ready-made project matching all four sorting modes, per-project persistence, 
 | [Codex sidebar project repair](https://github.com/tonyabracadabra/codex-sidebar-project-repair) | Project-state recovery | Recovery tool, not the requested menu feature |
 
 This repository uses original implementation code; it does not bundle these projects or claim their compatibility. The host adapter was derived from read-only inspection of a locally installed build. Only small replacement anchors and a source fingerprint are published, not host binaries or full source.
+
+## Official plugin API boundary
+
+Checked OpenAI's [plugin architecture](https://developers.openai.com/plugins/concepts/plugins), [plugin UI guide](https://developers.openai.com/plugins/build/chatgpt-ui), and [plugin packaging guide](https://developers.openai.com/plugins/build/plugins) on 2026-09-28. The documented plugin capabilities are skills, MCP tools/servers, lifecycle hooks, and optional tool-associated UI. The UI guide describes components rendered with the conversation; the docs do not document a Codex desktop sidebar or project-menu registration API.
+
+This means the current public plugin API cannot deliver this repository's requested native three-dot menu integration. This is a bounded conclusion from the published API, not a claim about undocumented or future interfaces. The installed Windows Store package also refused the isolated debug launch used for the experimental loader. We did not alter package permissions or patch the production installation. A supported sidebar extension point, or an upstream Codex implementation, is required for true production-client integration.

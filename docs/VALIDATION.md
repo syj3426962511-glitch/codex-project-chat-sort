@@ -28,4 +28,10 @@ Attempted to start the installed Windows desktop executable with isolated app pr
 
 No attempt was made to change WindowsApps permissions or bypass package protection. The alpha can be inspected and tested offline, but its host loading path, menu appearance, restart persistence, and compatibility with the current live client remain unverified.
 
+## Official integration feasibility — 2026-09-28
+
+Reviewed the current OpenAI plugin documentation. It describes skills, MCP integrations, lifecycle hooks, and optional UI returned by tools; it does not document a supported API for adding controls to the Codex desktop project sidebar or its three-dot menu. Therefore this extension cannot be installed as an official plugin to achieve the requested native menu behavior. This is a conclusion bounded by the public documentation reviewed, not by access to internal APIs.
+
+No production app files, WindowsApps permissions, or active Codex processes were changed. Formal native integration remains blocked on a supported sidebar/project-menu extension API or an upstream client change. The GitHub repository remains an experimental community extension and must not be described as production-integrated.
+
 The project must remain experimental until a real supported host is exercised. Passing core tests or source syntax checks does not establish full desktop compatibility.
