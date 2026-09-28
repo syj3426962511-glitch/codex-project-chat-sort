@@ -63,11 +63,12 @@ node tools/preview.mjs
    ```sh
    node bin/cli.mjs list --port 9437
    node bin/cli.mjs attach --port 9437 --target PAGE_ID
+   node bin/cli.mjs attach --port 9437 --target PAGE_ID --reload --once
    ```
 
 4. 附加后手动刷新测试页面；或使用 `--reload` 明确请求刷新。**刷新可能中断该页面的操作，勿在进行中的工作窗口使用。**
 
-CLI 只替换内存中的单个已知脚本响应。`renderer-patched` 只说明响应替换成功，仍需验证菜单、排序行为、持久化和分页行为。关闭客户端后不会自动重新加载扩展；此版本没有自启动安装器。
+CLI 只替换内存中的单个已知脚本响应。`--once` 会在首次成功注入后关闭调试连接，供外部启动器使用。`renderer-patched` 只说明响应替换成功，仍需验证菜单、排序行为、持久化和分页行为。关闭客户端后不会自动重新加载扩展；此仓库没有自启动安装器。用户可在自己控制的桌面快捷方式中采用[每次启动重注入方案](docs/STARTUP_REATTACH.md)。
 
 ## 撤销
 

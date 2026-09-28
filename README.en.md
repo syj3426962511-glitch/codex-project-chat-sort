@@ -30,9 +30,10 @@ Open `http://127.0.0.1:9438` for the **synthetic fixture**, not a live Codex int
 node bin/cli.mjs doctor --asar "PATH/TO/resources/app.asar"
 node bin/cli.mjs list --port 9437
 node bin/cli.mjs attach --port 9437 --target PAGE_ID
+node bin/cli.mjs attach --port 9437 --target PAGE_ID --reload --once
 ```
 
-This requires a test instance or an intentionally restarted default-profile instance that was launched with loopback debugging. Debug endpoints must remain on loopback: they allow control of that instance. The CLI does not launch or terminate a client. After attaching, reload the page manually, or use the explicit `--reload` switch. Do not reload ongoing work. The default-profile procedure is documented [here](docs/DEFAULT_PROFILE_INJECTION.md).
+This requires a test instance or an intentionally restarted default-profile instance that was launched with loopback debugging. Debug endpoints must remain on loopback: they allow control of that instance. The CLI does not launch or terminate a client. After attaching, reload the page manually, or use the explicit `--reload` switch. `--once` closes the CDP connection after the first successful patch and is useful for an external launcher. Do not reload ongoing work. The default-profile procedure is documented [here](docs/DEFAULT_PROFILE_INJECTION.md); the restart-time launcher pattern is documented [here](docs/STARTUP_REATTACH.md).
 
 The adapter checks the exact renderer SHA-256 and unique patch anchors before replacing one in-memory script response. A mismatch leaves the original script intact. No ASAR, installation file, auth token, or conversation database is modified. No telemetry or chat uploads.
 
