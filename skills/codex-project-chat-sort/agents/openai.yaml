@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex 项目聊天排序"
+  short_description: "为受支持的 Windows Codex 项目安装、诊断和恢复独立聊天排序菜单"
+  default_prompt: "Use $codex-project-chat-sort to set up and verify per-project sorting through my chosen Codex desktop shortcut."

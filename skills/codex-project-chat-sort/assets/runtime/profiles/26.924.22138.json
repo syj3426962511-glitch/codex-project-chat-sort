@@ -1,0 +1,30 @@
+{
+  "appVersion": "26.924.22138",
+  "packageVersion": "26.924.2738.0",
+  "asset": "app-initial-ff48311587c5.js",
+  "entry": "webview/assets/app-initial-ff48311587c5.js",
+  "sha256": "41d8d711bb87cb6941bcca253b913b521d008d0ef077b1b4b3f75a82113b0579",
+  "status": "experimental-not-live-verified",
+  "replacements": [
+    {
+      "before": "N=pnn({items:N.flatMap",
+      "after": "M=__cpsGet().sortGroups(t,M),N=pnn({items:N.flatMap"
+    },
+    {
+      "before": "return Ena({archiveEnabled:fN(a).length>0",
+      "after": "return __cpsGet().menu(d,r,Ena({archiveEnabled:fN(a).length>0"
+    },
+    {
+      "before": "projectKind:`local`,sectionItems:f,showProjectPinAction:l})}",
+      "after": "projectKind:`local`,sectionItems:f,showProjectPinAction:l}))}"
+    },
+    {
+      "before": "return Ena({archiveEnabled:fN(n).length>0",
+      "after": "return __cpsGet().menu(c,r,Ena({archiveEnabled:fN(n).length>0"
+    },
+    {
+      "before": "projectKind:`remote`,sectionItems:o,showProjectPinAction:s})}",
+      "after": "projectKind:`remote`,sectionItems:o,showProjectPinAction:s}))}"
+    }
+  ]
+}

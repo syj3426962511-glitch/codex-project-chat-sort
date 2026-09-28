@@ -6,7 +6,15 @@
 
 [English](README.en.md) · [验证记录](docs/VALIDATION.md) · [常用窗口接入过程](docs/DEFAULT_PROFILE_INJECTION.md) · [已有项目调查](docs/RESEARCH.md) · [功能建议](https://github.com/openai/codex/issues/48910)
 
-## 已实现
+## 可安装的 Skill
+
+独立技能位于 [`skills/codex-project-chat-sort`](skills/codex-project-chat-sort/SKILL.md)，包含排序运行时代码、Windows 安装/启动/恢复脚本及验证流程。将整个 `codex-project-chat-sort` 技能文件夹复制到 `$CODEX_HOME/skills/`（未设置时使用 `~/.codex/skills/`），重新加载技能后调用 `$codex-project-chat-sort`。也可从 GitHub Releases 下载 `.skill` 文件，按 ZIP 解压至同一目录。
+
+技能安装本身不会修改原生菜单。使用时由技能核验客户端版本，再按你指定的快捷方式设置启动注入；需要 Node.js 22+ 和 Windows PowerShell 5.1。仅支持下表列出的精确版本。技能不分发客户端或 Node 二进制、不包含本机账户路径。临时快捷方式的安装、启动前检查和原样恢复已实测；不会据此宣称正式窗口完整重启流程已验证。
+
+维护技能内嵌代码：运行 `node tools/build-skill.mjs` 后执行测试；`python tools/package-skill.py` 生成独立 `.skill` 压缩包。
+
+## 排序功能
 
 - 日期升降序、中文与数字自然名称排序；缺失日期始终置后。
 - 每个项目独立配置；适配层复用客户端的持久化偏好机制。

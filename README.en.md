@@ -13,7 +13,13 @@ node tools/preview.mjs
 
 Open `http://127.0.0.1:9438` for the **synthetic fixture**, not a live Codex integration.
 
-## Verification boundaries
+## Installable skill
+
+[`skills/codex-project-chat-sort`](skills/codex-project-chat-sort/SKILL.md) is a self-contained skill with the MIT sorting runtime and Windows install, launch, and restore scripts. Copy that complete folder into `$CODEX_HOME/skills/` (or `~/.codex/skills/`), reload skill discovery, and invoke `$codex-project-chat-sort`. The `.skill` release asset is a ZIP containing the same folder.
+
+Installing the skill does not itself inject a native menu. It guides a fingerprint-gated setup for the user's chosen shortcut, using Node.js 22+ and Windows PowerShell 5.1. No client binaries, Node executable, or personal machine configuration is included. Temporary shortcut installation, launcher preflight, and byte-exact restoration were tested; the normal window's complete restart loop remains unverified. Refresh bundled sources with `node tools/build-skill.mjs`, run tests, and package with `python tools/package-skill.py`.
+
+## Validation status
 
 - Unit tests and the synthetic browser interaction checks pass.
 - The installed renderer matching app version 26.924.22138 was inspected; its modified source parses successfully.
