@@ -6,6 +6,10 @@
 
 **Experimental source-only alpha; not an official Codex plugin.** A one-time in-memory renderer injection was exercised in the normal Windows Codex default-profile window and returned `renderer-patched`. The sorting menu was visually confirmed in a separate test window; the menu has not been separately captured in the normal window, and persistence across restart is unverified.
 
+## macOS launcher preview
+
+Use `Install-mac.command` / `Uninstall-mac.command`. After successful source compatibility checks, setup creates a separate desktop `Codex Sorting.command`; the original Dock icon is unchanged. **No Mac-specific renderer profile or live Mac integration has been validated yet.** A mismatched Mac renderer is rejected before installation. This release provides the launcher code, not verified Mac sorting support. See [macOS workflow](skills/codex-project-chat-sort/references/macos.md).
+
 Adds a per-project **Sort chats by** menu: last updated, date created, natural name order, and manual order. Preferences are scoped by account, source, host, and project ID. Includes an accessible manual-order dialog, a pure sorting engine, a synthetic browser fixture, and a fingerprint-gated CDP response adapter.
 
 No third-party runtime dependencies. Node.js 22+ required.

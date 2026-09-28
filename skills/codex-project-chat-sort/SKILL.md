@@ -1,6 +1,6 @@
 ---
 name: codex-project-chat-sort
-description: Install, launch, diagnose, or restore the experimental per-project chat sorting menu in supported Windows Codex Desktop builds, including optional desktop-shortcut startup injection.
+description: Install, launch, diagnose, or restore experimental per-project sorting in supported Windows Codex Desktop builds, and evaluate the unverified macOS launcher with strict renderer compatibility checks.
 ---
 
 # Codex project chat sorting
@@ -8,6 +8,8 @@ description: Install, launch, diagnose, or restore the experimental per-project 
 Provide Recent update, Date created, natural Name, and Manual sorting in each supported project's menu. Preferences are scoped by account, source, host, and project ID. This skill includes the original MIT runtime in `assets/runtime`; Node.js 22+ and Windows PowerShell 5.1 are prerequisites. Loading a skill alone does not change the native menu.
 
 ## Workflow
+
+On macOS, follow [macOS workflow](references/macos.md) and use `Install-mac.command` / `scripts/mac.mjs`. The Mac launcher has no validated Mac renderer profile yet. Stop on a fingerprint mismatch; do not substitute the Windows PowerShell workflow or claim the native menu is adapted based solely on launcher tests.
 
 For a user who simply wants sorting enabled, prefer `scripts/Setup.ps1` without arguments. It discovers Node, the desktop ChatGPT/Codex shortcut, and the registered app, checks compatibility, and configures startup without closing the running app. Instruct the user to save work, close Codex, and reopen through that desktop icon. Do not ask them to supply paths that discovery can resolve. `-CheckOnly` previews the detected setup without changes. Only request a specific path if discovery is missing or ambiguous. A user can alternatively double-click `Install.cmd`; `Uninstall.cmd` restores the default installation's shortcut. Advanced custom installations use the explicit commands below.
 

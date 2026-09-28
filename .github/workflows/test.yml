@@ -6,7 +6,7 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -14,3 +14,5 @@ jobs:
         with:
           node-version: '22'
       - run: node --test test/*.test.mjs
+      - if: runner.os != 'Windows'
+        run: bash -n skills/codex-project-chat-sort/Install-mac.command && bash -n skills/codex-project-chat-sort/Uninstall-mac.command

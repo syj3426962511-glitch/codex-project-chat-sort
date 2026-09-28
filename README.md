@@ -1,6 +1,6 @@
 # Codex Project Chat Sort
 
-**最简单的使用方式：**
+**Windows 最简单的使用方式：**
 
 **解压后双击 `Install.cmd`，自动绑定桌面 ChatGPT 图标。** 安装器会先备份原快捷方式，再将它指向排序启动器；不会立即关闭正在运行的客户端。配置成功后，退出并从这个桌面图标重新打开 Codex，以后都通过同一个图标启动。
 
@@ -9,6 +9,12 @@
 3. 保存工作，关闭 Codex，再通过原桌面图标打开，在项目三点菜单里查看“排序方式”。以后继续用该图标启动。
 
 需要恢复时双击 **`Uninstall.cmd`**。如果安装脚本报告版本不匹配或缺少 Node.js 22+，需先解决提示的问题；技能文件本身不会自动执行安装。
+
+## macOS 入口预览
+
+新增 **`Install-mac.command`** / **`Uninstall-mac.command`**，自动查找 Codex.app 和 Node.js，校验通过后创建桌面 **`Codex Sorting.command`**。退出 Codex 后，从这个新入口启动；原 Dock 图标不自动接入。
+
+**目前完成的是 macOS 启动器代码，尚无经过验证的 Mac 客户端适配指纹。** 如果 Mac 渲染器与现有指纹不同，安装会停止；不能承诺当前 Mac 安装后已有排序菜单。需要 Mac 客户端样本及实机验证才能完成具体版本适配。详见 [macOS 安装和验证说明](skills/codex-project-chat-sort/references/macos.md)。
 
 **实验性社区扩展，0.1.0-alpha.1，不是官方插件。** 已在 Codex Windows 正式包的常用默认资料窗口完成一次内存渲染器注入，返回 `renderer-patched`；排序菜单已在另一测试窗口视觉确认。常用窗口尚未单独截图复核菜单，也未验证重启后的持续加载。
 
