@@ -1,5 +1,7 @@
 # Codex Project Chat Sort
 
+**Extract the ZIP and double-click `Install.cmd` to bind your desktop ChatGPT shortcut to the sorting launcher.** Setup backs up the original shortcut before replacing its target and does not close the running client. After successful setup, exit Codex and reopen it through that same desktop icon; use the icon for subsequent launches as well.
+
 **Quick start:** Download **`codex-project-chat-sort.zip`** from [Releases](https://github.com/syj3426962511-glitch/codex-project-chat-sort/releases), extract it, and double-click **`Install.cmd`**. Setup discovers Node, the registered client, and a unique desktop ChatGPT/Codex shortcut. After success, save work, close Codex, and reopen through that same desktop icon. Double-click **`Uninstall.cmd`** to restore. A supported build and Node.js 22+ are still required; installing the skill alone does not execute setup.
 
 **Experimental source-only alpha; not an official Codex plugin.** A one-time in-memory renderer injection was exercised in the normal Windows Codex default-profile window and returned `renderer-patched`. The sorting menu was visually confirmed in a separate test window; the menu has not been separately captured in the normal window, and persistence across restart is unverified.

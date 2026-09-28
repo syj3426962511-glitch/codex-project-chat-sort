@@ -2,6 +2,8 @@
 
 **最简单的使用方式：**
 
+**解压后双击 `Install.cmd`，自动绑定桌面 ChatGPT 图标。** 安装器会先备份原快捷方式，再将它指向排序启动器；不会立即关闭正在运行的客户端。配置成功后，退出并从这个桌面图标重新打开 Codex，以后都通过同一个图标启动。
+
 1. 从 [Releases](https://github.com/syj3426962511-glitch/codex-project-chat-sort/releases) 下载最新 **`codex-project-chat-sort.zip`** 并解压。
 2. 双击技能文件夹里的 **`Install.cmd`**，等待配置成功。它会自动查找客户端、Node 和桌面 ChatGPT/Codex 图标。
 3. 保存工作，关闭 Codex，再通过原桌面图标打开，在项目三点菜单里查看“排序方式”。以后继续用该图标启动。
