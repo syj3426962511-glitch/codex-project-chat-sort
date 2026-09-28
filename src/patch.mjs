@@ -11,7 +11,7 @@ export function buildPayload() {
   const strip=s=>s.replace(/^import .*;\r?\n/gm,'').replace(/^export /gm,'');
   const factory='function __CPS_FACTORY__(host){\n'+strip(read('./core.mjs'))+'\n'+strip(read('./addon.mjs'))+'\nreturn createAddon(host);\n}';
   const arrange=strip(read('./arrange.mjs')).replace('function arrangeDialog(', 'function __CPS_ARRANGE__(');
-  return '\n;/* codex-project-chat-sort:0.1.0-alpha.1 */\n'+factory+'\n'+arrange+'\n'+read('./renderer-adapter.js');
+  return '\n;/* codex-project-chat-sort:0.1.0-alpha.1 */\n'+strip(read('./i18n.mjs'))+'\n'+factory+'\n'+arrange+'\n'+read('./renderer-adapter.js');
 }
 export function patchRenderer(source, profile) {
   if(sha256(source)!==profile.sha256)throw Error('Renderer fingerprint mismatch. No changes applied.');

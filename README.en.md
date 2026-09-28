@@ -1,10 +1,16 @@
 # Codex Project Chat Sort
 
+[中文](README.md) · [For Codex developers](docs/FOR_CODEX_DEVELOPERS.md) · [Downloads](https://github.com/syj3426962511-glitch/codex-project-chat-sort/releases)
+
+An MIT community prototype for **project menu → Sort chats by → Recently updated / Date created / Name / Manual**, with preferences saved separately for each project. English and Chinese menu/dialog labels follow the document language, falling back to the browser language; other locales use English. Native localized UI has not yet been visually verified.
+
+The **`codex-project-chat-sort-en.zip`** release contains the portable skill, installers, this English overview, and the developer brief. Open its `codex-project-chat-sort` folder to find the installers.
+
 **Extract the ZIP and double-click `Install.cmd` to bind your desktop ChatGPT shortcut to the sorting launcher.** Setup backs up the original shortcut before replacing its target and does not close the running client. After successful setup, exit Codex and reopen it through that same desktop icon; use the icon for subsequent launches as well.
 
 **Quick start:** Download **`codex-project-chat-sort.zip`** from [Releases](https://github.com/syj3426962511-glitch/codex-project-chat-sort/releases), extract it, and double-click **`Install.cmd`**. Setup discovers Node, the registered client, and a unique desktop ChatGPT/Codex shortcut. After success, save work, close Codex, and reopen through that same desktop icon. Double-click **`Uninstall.cmd`** to restore. A supported build and Node.js 22+ are still required; installing the skill alone does not execute setup.
 
-**Experimental source-only alpha; not an official Codex plugin.** A one-time in-memory renderer injection was exercised in the normal Windows Codex default-profile window and returned `renderer-patched`. The sorting menu was visually confirmed in a separate test window; the menu has not been separately captured in the normal window, and persistence across restart is unverified.
+**Experimental version-pinned alpha; not an official Codex plugin.** A one-time in-memory renderer injection was exercised in the normal Windows Codex default-profile window and returned `renderer-patched`. The sorting menu was visually confirmed in a separate test window; the menu has not been separately captured in the normal window, and persistence across restart is unverified.
 
 ## macOS launcher preview
 
@@ -51,6 +57,6 @@ This requires a test instance or an intentionally restarted default-profile inst
 
 The adapter checks the exact renderer SHA-256 and unique patch anchors before replacing one in-memory script response. A mismatch leaves the original script intact. No ASAR, installation file, auth token, or conversation database is modified. No telemetry or chat uploads.
 
-To revert, stop the CLI and reload the test client. Use the addon menu's reset action to clear a project's override. There is no auto-start installer.
+To revert a configured Windows shortcut, run `Uninstall.cmd`; on macOS run `Uninstall-mac.command` to remove the unchanged generated launcher. To remove a runtime patch, stop the CLI and reload or reopen through the original app entry. Use the addon menu's reset action to clear a project's override. Installing the skill itself does not automatically run these installers.
 
 See [validation](docs/VALIDATION.md), the [normal-window injection report](docs/DEFAULT_PROFILE_INJECTION.md), [research](docs/RESEARCH.md), and the [Chinese README](README.md). MIT for original project code only; proprietary host binaries are not distributed. Not affiliated with or endorsed by OpenAI.

@@ -1,5 +1,9 @@
 # Codex Project Chat Sort
 
+[English version](README.en.md) · [面向 Codex 开发者的英文说明](docs/FOR_CODEX_DEVELOPERS.md)
+
+已提供英文介绍包 `codex-project-chat-sort-en.zip`。菜单及手动排序窗口现在根据文档/浏览器语言选择中文或英文；英文界面的原生客户端视觉验证仍待完成。
+
 **Windows 最简单的使用方式：**
 
 **解压后双击 `Install.cmd`，自动绑定桌面 ChatGPT 图标。** 安装器会先备份原快捷方式，再将它指向排序启动器；不会立即关闭正在运行的客户端。配置成功后，退出并从这个桌面图标重新打开 Codex，以后都通过同一个图标启动。

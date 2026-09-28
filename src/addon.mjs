@@ -1,4 +1,5 @@
 import { sortThreads, selectMode, reorder } from './core.mjs';
+import { cpsLabels } from './i18n.mjs';
 
 // Host callbacks are supplied by a fingerprinted renderer adapter, never guessed
 // from project names or DOM positions. No network or filesystem access here.
@@ -34,6 +35,7 @@ export function createAddon(host) {
   }
   const message = (id, text) => ({ id: `cps.${id}`, defaultMessage: text });
   function menu(scope, group, original) {
+    const labels=cpsLabels(host.locale?.());
     if (host.supportsGroup && !host.supportsGroup(scope.get,group)) return original;
     let stored;
     try { stored = state(scope.get, group); } catch (error) { host.report(error); return original; }
@@ -41,7 +43,7 @@ export function createAddon(host) {
     const { p } = stored;
     const run = fn => () => { try { fn(); } catch (error) { host.report(error); } };
     const currentRows = () => rows(scope.get, apply(scope.get, group));
-    const choices = [ ['updated_at','最近更新'], ['created_at','创建日期'], ['name','名称'], ['manual','手动'] ];
+    const choices = ['updated_at','created_at','name','manual'].map(mode=>[mode,labels[mode]]);
     const submenu = choices.map(([mode, label]) => ({
       id: `cps-${mode}`, type: 'radio', checked: p?.mode === mode,
       message: message(mode, label),
@@ -55,11 +57,11 @@ export function createAddon(host) {
       }),
     }));
     submenu.push({ id: 'cps-direction-separator', type: 'separator' });
-    if (p && p.mode !== 'manual') for (const [direction, label] of [['asc','升序'],['desc','降序']]) {
+    if (p && p.mode !== 'manual') for (const [direction, label] of [['asc',labels.asc],['desc',labels.desc]]) {
       submenu.push({ id: `cps-${direction}`, type:'radio', checked:p.direction===direction,
         message:message(direction,label), onSelect:run(()=>save(scope,group,{...p,direction})) });
     }
-    submenu.push({ id:'cps-arrange', message:message('arrange','手动调整顺序…'), onSelect:run(()=> {
+    submenu.push({ id:'cps-arrange', message:message('arrange',labels.arrange), onSelect:run(()=> {
       const current = currentRows();
       host.arrange(current, ordered => {
         try {
@@ -78,8 +80,8 @@ export function createAddon(host) {
         } catch(error) { host.report(error); throw error; }
       });
     }) });
-    submenu.push({id:'cps-reset',message:message('reset','恢复应用默认排序'),onSelect:run(()=>save(scope,group,null))});
-    return [...original.slice(0,1), { id:'cps-sort',message:message('sort','排序方式'),submenu }, ...original.slice(1)];
+    submenu.push({id:'cps-reset',message:message('reset',labels.reset),onSelect:run(()=>save(scope,group,null))});
+    return [...original.slice(0,1), { id:'cps-sort',message:message('sort',labels.sort),submenu }, ...original.slice(1)];
   }
   return { sortGroups:(get,groups)=>groups.map(g=>apply(get,g)), menu };
 }
