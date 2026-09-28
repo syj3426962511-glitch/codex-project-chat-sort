@@ -1,0 +1,9 @@
+node_modules/
+.runtime/
+.artifacts/
+*.log
+*.asar
+*.exe
+*.sqlite*
+auth.json
+.env*

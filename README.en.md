@@ -1,0 +1,40 @@
+# Codex Project Chat Sort
+
+**Experimental source-only alpha. Not an official Codex plugin. Not live-verified in the installed Windows desktop client.**
+
+Adds a per-project **Sort chats by** menu: last updated, date created, natural name order, and manual order. Preferences are scoped by account, source, host, and project ID. Includes an accessible manual-order dialog, a pure sorting engine, a synthetic browser fixture, and a fingerprint-gated CDP response adapter.
+
+No third-party runtime dependencies. Node.js 22+ required.
+
+```sh
+node --test test/*.test.mjs
+node tools/preview.mjs
+```
+
+Open `http://127.0.0.1:9438` for the **synthetic fixture**, not a live Codex integration.
+
+## Verification boundaries
+
+- Unit tests and the synthetic browser interaction checks pass.
+- The installed renderer matching app version 26.924.22138 was inspected; its modified source parses successfully.
+- An isolated Windows Store app launch returned **access denied**, so a live end-to-end integration is **not verified**.
+- This alpha sorts only already-loaded chats. It does not fetch paginated history.
+- Local/remote unpinned project menus are adapted; pinned projects and ChatGPT cloud project menus are not.
+- Manual reordering uses the addon dialog, not the host's built-in drag handler.
+- Host restart persistence and multi-window behavior remain unverified.
+
+## Experimental integration
+
+```sh
+node bin/cli.mjs doctor --asar "PATH/TO/resources/app.asar"
+node bin/cli.mjs list --port 9437
+node bin/cli.mjs attach --port 9437 --target PAGE_ID
+```
+
+This requires an explicitly debug-enabled, isolated Codex instance. Debug endpoints must remain on loopback: they allow control of that instance. The CLI does not launch or terminate a production client. After attaching, reload the test page manually, or use the explicit `--reload` switch. Do not reload ongoing work.
+
+The adapter checks the exact renderer SHA-256 and unique patch anchors before replacing one in-memory script response. A mismatch leaves the original script intact. No ASAR, installation file, auth token, or conversation database is modified. No telemetry or chat uploads.
+
+To revert, stop the CLI and reload the test client. Use the addon menu's reset action to clear a project's override. There is no auto-start installer.
+
+See [validation](docs/VALIDATION.md), [research](docs/RESEARCH.md), and the [Chinese README](README.md). MIT for original project code only; proprietary host binaries are not distributed. Not affiliated with or endorsed by OpenAI.
