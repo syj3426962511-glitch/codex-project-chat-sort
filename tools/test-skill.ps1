@@ -16,7 +16,8 @@ $link.TargetPath=Join-Path $PSHOME 'powershell.exe'
 $link.Save()
 $original=(Get-FileHash -LiteralPath $shortcut -Algorithm SHA256).Hash
 $install=Join-Path $testRoot 'installation'
-& (Join-Path $skill 'scripts\Install.ps1') -InstallDirectory $install -ShortcutPath $shortcut -NodePath $NodePath
+& (Join-Path $skill 'scripts\Setup.ps1') -InstallDirectory $install -ShortcutPath $shortcut -NodePath $NodePath
+& (Join-Path $skill 'scripts\Setup.ps1') -InstallDirectory $install -ShortcutPath $shortcut -NodePath $NodePath
 if($shell.CreateShortcut($shortcut).TargetPath -ne (Join-Path $install 'Start-Sorting.cmd')){throw 'Shortcut target was not installed.'}
 & (Join-Path $install 'scripts\Launch.ps1') -CheckOnly
 & (Join-Path $install 'scripts\Restore.ps1') -InstallDirectory $install

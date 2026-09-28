@@ -1,5 +1,11 @@
 # Windows setup and verification
 
+## Simplest setup
+
+Extract the skill folder and double-click `Install.cmd`. No arguments are needed when one desktop ChatGPT/Codex shortcut and Node.js 22+ can be found. Setup uses `CODEX_HOME/addons/codex-project-chat-sort`, or `~/.codex/addons/codex-project-chat-sort` if CODEX_HOME is unset. After it reports success, save work, close Codex, and reopen using the same desktop icon. Use `Uninstall.cmd` to restore the shortcut. Repeated setup recognizes an unchanged existing installation. It does not forcibly restart the app or download missing dependencies. For custom installation directories, restore with `Restore.ps1 -InstallDirectory ...`.
+
+`Setup.ps1 -CheckOnly` verifies automatic discovery and compatibility without changing any shortcut. Missing or ambiguous prerequisites produce an actionable error rather than choosing an unrelated shortcut.
+
 Run the PowerShell scripts with `powershell.exe -NoProfile -File ...` (Windows PowerShell 5.1). PowerShell 7 may fail to load the Appx module. Node.js 22+ must already be installed; pass the actual executable path rather than relying on Explorer's PATH. No Node or Codex binaries are redistributed.
 
 The skill folder is self-contained. Example placeholders below must be replaced with the user's actual paths:

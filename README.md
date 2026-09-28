@@ -1,5 +1,13 @@
 # Codex Project Chat Sort
 
+**最简单的使用方式：**
+
+1. 从 [Releases](https://github.com/syj3426962511-glitch/codex-project-chat-sort/releases) 下载最新 **`codex-project-chat-sort.zip`** 并解压。
+2. 双击技能文件夹里的 **`Install.cmd`**，等待配置成功。它会自动查找客户端、Node 和桌面 ChatGPT/Codex 图标。
+3. 保存工作，关闭 Codex，再通过原桌面图标打开，在项目三点菜单里查看“排序方式”。以后继续用该图标启动。
+
+需要恢复时双击 **`Uninstall.cmd`**。如果安装脚本报告版本不匹配或缺少 Node.js 22+，需先解决提示的问题；技能文件本身不会自动执行安装。
+
 **实验性社区扩展，0.1.0-alpha.1，不是官方插件。** 已在 Codex Windows 正式包的常用默认资料窗口完成一次内存渲染器注入，返回 `renderer-patched`；排序菜单已在另一测试窗口视觉确认。常用窗口尚未单独截图复核菜单，也未验证重启后的持续加载。
 
 为项目三点菜单增加 **排序方式 → 最近更新 / 创建日期 / 名称 / 手动**，按账号、来源、主机与项目 ID 分别保存配置。
