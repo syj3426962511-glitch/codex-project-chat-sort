@@ -1,5 +1,11 @@
 # Per-project chat sorting: community prototype for Codex developers
 
+## Expanded sidebar proposal — 2026-09-30
+
+The requested design now includes sorting in the three-dot menus for **Pinned, Projects, Recents, custom sections, and individual projects**. Each header sorts its direct items: Projects sorts folders, whereas an individual project sorts its chats. Choices persist independently and scoped reset does not modify other containers or child projects. Existing native Chat sort order entries must be checked for their actual shared/global scope before extending them.
+
+The [V2 specification](SIDEBAR_SORTING_SPEC.en.md) defines mixed pinned items, project metadata availability, Recents date buckets, manual order, pagination, migration, and 15 acceptance scenarios. The [Chinese version](SIDEBAR_SORTING_SPEC.zh-CN.md) includes the proposed JSON schema. **This is a documentation-only expansion. The current adapter still does not implement the additional header scopes.**
+
 ## User problem and proposed behavior
 
 With many research or engineering chats inside several projects, a shared sidebar ordering rule makes it difficult to keep each project organized. The requested native workflow is **project menu → Sort chats by → Recently updated / Date created / Name / Manual**, persisted independently for each project. For example, one project can keep numbered experiments in natural name order while another shows recent activity.

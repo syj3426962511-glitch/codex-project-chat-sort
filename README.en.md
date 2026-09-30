@@ -2,6 +2,8 @@
 
 [中文](README.md) · [For Codex developers](docs/FOR_CODEX_DEVELOPERS.md) · [Downloads](https://github.com/syj3426962511-glitch/codex-project-chat-sort/releases)
 
+**2026-09-30 specification update:** [Sidebar sorting V2](docs/SIDEBAR_SORTING_SPEC.en.md) now covers Pinned, Projects, Recents, custom sections, and project chats with independent scopes, persistence, reset behavior, and acceptance criteria. **These additional scopes are proposed, not implemented in the current downloads.**
+
 An MIT community prototype for **project menu → Sort chats by → Recently updated / Date created / Name / Manual**, with preferences saved separately for each project. English and Chinese menu/dialog labels follow the document language, falling back to the browser language; other locales use English. Native localized UI has not yet been visually verified.
 
 The **`codex-project-chat-sort-en.zip`** release contains the portable skill, installers, this English overview, and the developer brief. Open its `codex-project-chat-sort` folder to find the installers.
